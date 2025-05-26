@@ -300,7 +300,6 @@ export function setButtonHover() {
   });
 }
 
-
 export function setFooterAppear() {
   let $footer = $(".footer");
   let $lines = $footer.find(".horizontal-line");
@@ -515,29 +514,20 @@ export function setPageTransition() {
 }
 
 export function setLinkHover() {
-  $("a").hover(
-    function () {
-      const hoveredLink = this;
+    $('a').each(function () {
+    const el = this;
 
-      $("h1, h2, h3, h4, h5, h6, p, span, li, a").each(function () {
-        const el = this;
-        if (
-          el === hoveredLink ||
-          hoveredLink.contains(el) ||
-          el.contains(hoveredLink)
-        ) {
-          return;
-        }
-        gsap.to(el, { opacity: 0.7, duration: 0.3 });
-      });
-    },
-    function () {
-      gsap.to("h1, h2, h3, h4, h5, h6, p, span, li, a", {
-        opacity: 1,
-        duration: 0.3,
-      });
-    }
-  );
+    el.addEventListener('pointerenter', () => {
+      console.log('pointerenter');
+      gsap.to(el, { opacity: 0.5, duration: 0.3 });
+    });
+
+    el.addEventListener('pointerleave', () => {
+      console.log('pointerleave');
+      gsap.to(el, { opacity: 1, duration: 0.3 });
+    });
+  });
+
 }
 
 export function setPatchAppearOnScroll() {
@@ -608,7 +598,7 @@ export function setPatchAppear() {
     });
 
     patchTl.from($(this), {
-      duration: 1
+      duration: 1,
     });
     patchTl.from($(this), {
       scaleY: 0,
@@ -713,7 +703,7 @@ export function setButtonAppear() {
       tagName: "span",
     });
 
-     buttonTl.from($(this), {duration: 1})
+    buttonTl.from($(this), { duration: 1 });
     buttonTl.from($(this), {
       scaleY: 0,
       transformOrigin: "bottom",
@@ -753,17 +743,17 @@ export function setButtonAppear() {
 export function LottieScrollTrigger(vars) {
   let playhead = { frame: 0 },
     target = gsap.utils.toArray(vars.target)[0],
-    speeds = { slow: '+=2000', medium: '+=1000', fast: '+=500' },
+    speeds = { slow: "+=2000", medium: "+=1000", fast: "+=500" },
     st = {
       trigger: target,
       pin: true,
-      start: 'top top',
-      end: speeds[vars.speed] || '+=1000',
+      start: "top top",
+      end: speeds[vars.speed] || "+=1000",
       scrub: 1,
     },
     animation = lottie.loadAnimation({
       container: target,
-      renderer: vars.renderer || 'svg',
+      renderer: vars.renderer || "svg",
       loop: false,
       autoplay: false,
       path: vars.path,
@@ -773,12 +763,12 @@ export function LottieScrollTrigger(vars) {
     // let users override the ScrollTrigger defaults
     st[p] = vars[p];
   }
-  animation.addEventListener('DOMLoaded', function () {
+  animation.addEventListener("DOMLoaded", function () {
     gsap.to(playhead, {
       duration: vars.duration || 0.5,
       delay: vars.delay || 0,
       frame: animation.totalFrames - 1,
-      ease: vars.ease || 'none',
+      ease: vars.ease || "none",
       onUpdate: () => animation.goToAndStop(playhead.frame, true),
       scrollTrigger: st,
     });
