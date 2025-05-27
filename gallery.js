@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 window.addEventListener("load", () => {
   $(".gallery-gallery_container-cover").css("display", "block");
-  if ($(window).width() > 991) { 
+  if ($(window).width() > 991) {
     setGalleryHover();
     setButtonHover();
     setLinkHover();
@@ -35,8 +35,10 @@ window.addEventListener("load", () => {
   setInterval(updateClock, 1000);
   updateClock();
   setNavBarMenu();
-  galleryBehavior();
-  setGalleryClick();
+  setTimeout(() => {
+    galleryBehavior();
+    setGalleryClick();
+  }, 1500);
 });
 
 const SplitType = window.SplitType;
@@ -46,32 +48,32 @@ let typeSplit = new SplitType("[text-split]", {
 });
 
 const imagesLinks = [
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127bb4d92643fc5ed4e5_reckless_gallery-image%20(1).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127207dccb69865214e9_reckless_gallery-image%20(2).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612731244f05a46e532be_reckless_gallery-image%20(3).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127278b1bbf54180e0e7_reckless_gallery-image%20(4).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127767816c83ef8a4419_reckless_gallery-image%20(5).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612734eecf3a45411cf70_reckless_gallery-image%20(6).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361274a6c8c11563adf235_reckless_gallery-image%20(7).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127578b1bbf54180e1f2_reckless_gallery-image%20(8).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612772c68950ee99057a0_reckless_gallery-image%20(9).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612772ebee597cfaf6210_reckless_gallery-image%20(10).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361275abf07839b2c70b1e_reckless_gallery-image%20(11).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612744523241d10c8617e_reckless_gallery-image%20(12).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127707dccb6986521733_reckless_gallery-image%20(13).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612732575b8ae8581e339_reckless_gallery-image%20(14).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612754eecf3a45411d0c5_reckless_gallery-image%20(15).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127a4eecf3a45411d2b7_reckless_gallery-image%20(16).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612730d1cdd9b1edd7a74_reckless_gallery-image%20(17).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361277568188501821b46d_reckless_gallery-image%20(18).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127771db1ffddfd5f31c_reckless_gallery-image%20(19).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361275139c8c75dfd2d27e_reckless_gallery-image%20(20).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361278444ba5b5aecc8f3d_reckless_gallery-image%20(21).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127764eefa5653cec7c9_reckless_gallery-image%20(23).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361277b5354690a7f2c209_reckless_gallery-image%20(24).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127528acb65a11b0d608_reckless_gallery-image%20(25).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127520f983e11d475972_reckless_gallery-image%20(27).webp",
-    "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612758a6542de5d20a484_reckless_gallery-image%20(28).webp"
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127bb4d92643fc5ed4e5_reckless_gallery-image%20(1).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127207dccb69865214e9_reckless_gallery-image%20(2).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612731244f05a46e532be_reckless_gallery-image%20(3).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127278b1bbf54180e0e7_reckless_gallery-image%20(4).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127767816c83ef8a4419_reckless_gallery-image%20(5).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612734eecf3a45411cf70_reckless_gallery-image%20(6).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361274a6c8c11563adf235_reckless_gallery-image%20(7).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127578b1bbf54180e1f2_reckless_gallery-image%20(8).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612772c68950ee99057a0_reckless_gallery-image%20(9).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612772ebee597cfaf6210_reckless_gallery-image%20(10).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361275abf07839b2c70b1e_reckless_gallery-image%20(11).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612744523241d10c8617e_reckless_gallery-image%20(12).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127707dccb6986521733_reckless_gallery-image%20(13).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612732575b8ae8581e339_reckless_gallery-image%20(14).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612754eecf3a45411d0c5_reckless_gallery-image%20(15).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127a4eecf3a45411d2b7_reckless_gallery-image%20(16).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612730d1cdd9b1edd7a74_reckless_gallery-image%20(17).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361277568188501821b46d_reckless_gallery-image%20(18).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127771db1ffddfd5f31c_reckless_gallery-image%20(19).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361275139c8c75dfd2d27e_reckless_gallery-image%20(20).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361278444ba5b5aecc8f3d_reckless_gallery-image%20(21).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127764eefa5653cec7c9_reckless_gallery-image%20(23).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/68361277b5354690a7f2c209_reckless_gallery-image%20(24).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127528acb65a11b0d608_reckless_gallery-image%20(25).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127520f983e11d475972_reckless_gallery-image%20(27).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612758a6542de5d20a484_reckless_gallery-image%20(28).webp",
 ];
 let imagesLinksReplicate = imagesLinks.slice();
 const formats = [
@@ -154,7 +156,7 @@ function galleryWaveAnimation() {
     stagger: 0.07,
     onComplete: () => {
       $(".gallery-gallery_container-cover").css("display", "none");
-    }
+    },
   });
 
   waveTl.from(
@@ -274,8 +276,6 @@ function setImageHover() {
   });
 }
 
-
-
 function checkImagesArray() {
   if (imagesLinksReplicate.length == 0) {
     imagesLinksReplicate = imagesLinks.slice();
@@ -298,12 +298,14 @@ function setGalleryClick() {
 
   $(".gallery-gallery_item").each(function () {
     $(this).on("click", function () {
-      if(isAnimating){return};
+      if (isAnimating) {
+        return;
+      }
       isAnimating = true;
       $(".gallery-gallery_container-cover").css("display", "block");
       const src = $(this).attr("src");
       $image.attr("src", src);
-      $(this).addClass("active")
+      $(this).addClass("active");
       gsap.set($imageContainer, {
         clipPath: "inset(100% 0 0 0)",
       });
@@ -336,37 +338,46 @@ function setGalleryClick() {
         clipPath: "inset(0% 0 0 0)",
         duration: 0.5,
         ease: "power1.out",
-        onComplete:()=>{$(".gallery-gallery_container-cover").css("display", "none"); isAnimating = false;}
+        onComplete: () => {
+          $(".gallery-gallery_container-cover").css("display", "none");
+          isAnimating = false;
+        },
       });
     });
-  });//end each loop
+  }); //end each loop
 
-  $modal.on("click", ()=>{
+  $modal.on("click", () => {
     let tl = gsap.timeline();
-    if(isAnimating){return}
-    isAnimating = true,
+    if (isAnimating) {
+      return;
+    }
+    (isAnimating = true),
+      tl.to($imageContainer, {
+        clipPath: "inset(100% 0 0 0)",
+        duration: 0.5,
+        ease: "power1.out",
+      });
 
-    tl.to($imageContainer, {
-      clipPath: "inset(100% 0 0 0)",
+    tl.to($modal, {
+      opacity: 0,
       duration: 0.5,
       ease: "power1.out",
     });
 
     tl.to(
-      $modal,
+      $(".active"),
       {
-        opacity: 0,
-        duration: 0.5,
+        clipPath: "inset(0% 0 0 0)",
+        duration: 0.4,
         ease: "power1.out",
+        onComplete: () => {
+          $(".active").removeClass("active");
+          waveTl.play();
+          isAnimating = false;
+        },
       },
+      "<"
     );
-
-    tl.to($(".active"), {
-      clipPath: "inset(0% 0 0 0)",
-      duration: 0.4,
-      ease: "power1.out",
-      onComplete: () => {$(".active").removeClass("active"); waveTl.play(); isAnimating = false;}
-    }, "<");
     tl.set($modal, { display: "none" });
   });
 }
