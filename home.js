@@ -18,10 +18,7 @@ import {
   setPatchAppearOnScroll,
   setButtonAppearOnScroll,
   LottieScrollTrigger,
-  
 } from "./utils.js";
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -29,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (sessionStorage.getItem("visited") !== "true") {
     $(".transition_wrapper").css("display", "none");
     disableScroll();
-    setTimeout(preloaderAnimation, 500)
+    setTimeout(preloaderAnimation, 500);
   } else {
     $(".preloader_wrapper").css("display", "none");
   }
@@ -57,7 +54,7 @@ window.addEventListener("load", () => {
     setButtonAppearOnScroll();
     setPatchAppearOnScroll();
     setProcessFade();
-  };
+  }
   setFooterScrollTop();
   setNavBarMenu();
   setIntroLottie();
@@ -107,7 +104,7 @@ function preloaderAnimation() {
   preloadertl.to(
     ".preloader_sun-border-wrapper",
     {
-      borderColor: "#fff",
+      borderColor: "var(--base-color-brand--pink);",
       rotation: 0,
       duration: 1,
       onComplete: () => {
@@ -158,7 +155,6 @@ function createReflectLines() {
 //Animation used to enter the site, by scale the sun so it wrap the all page
 let landingEntranceTl = gsap.timeline();
 function EntranceAnimation() {
-  
   landingEntranceTl.to(
     ".preloader_reflect_svg",
     {
@@ -197,6 +193,16 @@ function EntranceAnimation() {
     "<"
   );
 
+  landingEntranceTl.from(
+    $(".home-hero_backgroundimage"),
+    {
+      duration: 1.4,
+      ease: "power1.out",
+      height: "100%"
+    },
+    "<"
+  );
+
   landingEntranceTl.from(".cookie_container", {
     scaleX: 0,
     duration: 0.5,
@@ -204,8 +210,8 @@ function EntranceAnimation() {
   });
 
   $(".home-hero_patch, .home-hero_patch-2").each(function () {
-    const patchTl = gsap.timeline({    });
-   
+    const patchTl = gsap.timeline({});
+
     const patchSplitType = window.SplitType;
     let patchTypeSplit = new patchSplitType($(this).find("p"), {
       types: "words, chars",
@@ -219,7 +225,7 @@ function EntranceAnimation() {
       ease: "power2.out",
     });
     patchTl.from($(this).find(".horizontal-line"), {
-      scaleX: 0, 
+      scaleX: 0,
       duration: 0.3,
       transformOrigin: "left",
       ease: "power2.out",
@@ -228,7 +234,7 @@ function EntranceAnimation() {
     patchTl.from(
       $(this).find(".vertical-line"),
       {
-        scaleY: 0, 
+        scaleY: 0,
         duration: 0.3,
         transformOrigin: "top",
         ease: "power2.out",
@@ -236,23 +242,21 @@ function EntranceAnimation() {
       },
       "<"
     );
-    patchTl.from(
-      $(this).find(".char"),
-      {
-        yPercent: 120,
+    patchTl.from($(this).find(".char"), {
+      yPercent: 120,
       stagger: 0.002,
       duration: 0.35,
-      },
-    );
+    });
     patchTl.from(
       $(this).find("img"),
       {
         yPercent: -120,
-      stagger: 0.002,
-      duration: 0.35,
-      }, "<"
+        stagger: 0.002,
+        duration: 0.35,
+      },
+      "<"
     );
-    landingEntranceTl.add(patchTl, "<")
+    landingEntranceTl.add(patchTl, "<");
   });
 
   landingEntranceTl.from(
@@ -342,7 +346,6 @@ function setFooterLottie() {
 }
 
 function setProcessLottie() {
-  
   // let animProcess = lottie.loadAnimation({
   //   container: document.querySelector(".home-process_lottie"),
   //   renderer: "svg",
@@ -372,7 +375,6 @@ function setProcessLottie() {
     pin: false,
     // markers: true
   });
-
 }
 
 function setProcessFadingText() {
@@ -387,11 +389,10 @@ function setProcessFadingText() {
       },
     });
 
-    tl.from($(this), { 
-      opacity: 0.2, 
-      duration: 0.3 
-    })
-    .to($(this), {
+    tl.from($(this), {
+      opacity: 0.2,
+      duration: 0.3,
+    }).to($(this), {
       opacity: 0,
       duration: 0.3,
       delay: 0.1,
@@ -461,18 +462,26 @@ function setBoardsScrollAnimation() {
       ease: "power1.out",
       duration: 1,
     });
-     boardTl.from($(boardCardsShifted[index]).find(".horizontal-line"), {
-      scaleX: 0,
-      delay: .5,
-      ease: "power1.out",
-      duration: .7,
-    }, "<");
-    boardTl.from($(boardCardsShifted[index]).find(".vertical-line"), {
-      scaleY: 0,
-      delay: .5,
-      ease: "power1.out",
-      duration: .7,
-    }, "<");
+    boardTl.from(
+      $(boardCardsShifted[index]).find(".horizontal-line"),
+      {
+        scaleX: 0,
+        delay: 0.5,
+        ease: "power1.out",
+        duration: 0.7,
+      },
+      "<"
+    );
+    boardTl.from(
+      $(boardCardsShifted[index]).find(".vertical-line"),
+      {
+        scaleY: 0,
+        delay: 0.5,
+        ease: "power1.out",
+        duration: 0.7,
+      },
+      "<"
+    );
 
     if (boardCardsPoped[index]) {
       boardTl.to(
@@ -678,49 +687,64 @@ function cookieConsentHandler() {
       duration: 0.35,
     });
   });
-};
+}
 
 function setProcessFade() {
-
-  $(".home-process_section").addClass("brown-background")
+  $(".home-process_section").addClass("brown-background");
   const fadeTl = gsap.timeline({
     scrollTrigger: {
-       trigger: $(".home-process_section"),
-       start: "top 20%",
-       end: "bottom 20%",
-       onEnter: ()=>{
-        $('.home-process_background').css("display", "block");
-        $(".home-about_section, .home-philosophy_section, .home-process_section").removeClass("brown-background");
-        $(".home-about_section, .home-philosophy_section, .home-process_section").addClass("pink-background");
-       },
-       onEnterBack: ()=>{
-        $('.home-process_background').css("display", "block")
-        $(".home-about_section, .home-philosophy_section, .home-process_section").removeClass("brown-background");
-        $(".home-about_section, .home-philosophy_section, .home-process_section").addClass("pink-background");
-       },
-       onLeave: ()=>{
-        $('.home-process_background').css("display", "none")
-        $(".home-about_section, .home-philosophy_section, .home-process_section").removeClass("pink-background");
-        $(".home-about_section, .home-philosophy_section, .home-process_section").addClass("brown-background");
-       },
-       onLeaveBack: ()=>{
-        $('.home-process_background').css("display", "none")
-        $(".home-about_section, .home-philosophy_section, .home-process_section").removeClass("pink-background");
-        $(".home-about_section, .home-philosophy_section, .home-process_section").addClass("brown-background");
-       },
+      trigger: $(".home-process_section"),
+      start: "top 20%",
+      end: "bottom 20%",
+      onEnter: () => {
+        $(".home-process_background").css("display", "block");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).removeClass("brown-background");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).addClass("pink-background");
+      },
+      onEnterBack: () => {
+        $(".home-process_background").css("display", "block");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).removeClass("brown-background");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).addClass("pink-background");
+      },
+      onLeave: () => {
+        $(".home-process_background").css("display", "none");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).removeClass("pink-background");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).addClass("brown-background");
+      },
+      onLeaveBack: () => {
+        $(".home-process_background").css("display", "none");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).removeClass("pink-background");
+        $(
+          ".home-about_section, .home-philosophy_section, .home-process_section"
+        ).addClass("brown-background");
+      },
     },
- });
-};
+  });
+}
 
 function setPhilosophyColumnTextHover() {
-  const $items = $('.home-philosophy_column.is-right').find("p");
+  const $items = $(".home-philosophy_column.is-right").find("p");
 
-  $items.each(function(index) {
-    $(this).on("mouseenter", function() {
+  $items.each(function (index) {
+    $(this).on("mouseenter", function () {
       const baseOffset = 40;
       const decayFactor = 0.7;
 
-      $items.each(function(i) {
+      $items.each(function (i) {
         const distanceFromHovered = Math.abs(i - index);
         // const direction = i < index ? -1 : 1;
 
@@ -730,19 +754,19 @@ function setPhilosophyColumnTextHover() {
         gsap.to(this, {
           paddingLeft: offset,
           duration: 0.4,
-          ease: "power2.out"
+          ease: "power2.out",
         });
       });
     });
 
-    $(this).on("mouseleave", function() {
+    $(this).on("mouseleave", function () {
       // Tout revient à 0
-      $items.each(function() {
+      $items.each(function () {
         gsap.to(this, {
           paddingLeft: 0,
           duration: 0.4,
           ease: "power2.inOut",
-          delay: .5
+          delay: 0.5,
         });
       });
     });
