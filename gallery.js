@@ -61,10 +61,8 @@ const formats = [
   "3/2",
   "21/9",
   "2.39/1",
-  // "9/16",
-  // "3/4",
-  "2/3",
-  "1/1",
+  // "2/3",
+  // "1/1",
 ];
 let formatsReplicate = formats.slice();
 let isAnimating = false;
