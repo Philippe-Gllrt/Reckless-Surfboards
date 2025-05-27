@@ -143,6 +143,7 @@ function setGallery() {
       checkImagesArray();
     });
   } //end loop for
+  imagesLinksReplicate = imagesLinks.slice();
 }
 
 let waveTl = gsap.timeline();
