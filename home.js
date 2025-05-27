@@ -311,7 +311,7 @@ function setIntroLottie() {
     renderer: "svg",
     loop: false, // or false if you don't want it to loop
     autoplay: false, // Disable autoplay
-    path: "https://cdn.prod.website-files.com/6830408eb251b025ab189eec/68304a556e0e72188e0e9f16_reckless-lottie-json.json",
+    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835c1d2f28d793d372f7aff_reckless-lottie-json.json",
   });
 
   ScrollTrigger.create({
@@ -331,7 +331,7 @@ function setFooterLottie() {
     renderer: "svg",
     loop: false, // or false if you don't want it to loop
     autoplay: false, // Disable autoplay
-    path: "https://cdn.prod.website-files.com/6830408eb251b025ab189eec/68304a556e0e72188e0e9f16_reckless-lottie-json.json",
+    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835c1d2f28d793d372f7aff_reckless-lottie-json.json",
   });
 
   ScrollTrigger.create({
@@ -346,28 +346,10 @@ function setFooterLottie() {
 }
 
 function setProcessLottie() {
-  // let animProcess = lottie.loadAnimation({
-  //   container: document.querySelector(".home-process_lottie"),
-  //   renderer: "svg",
-  //   loop: false, // or false if you don't want it to loop
-  //   autoplay: false, // Disable autoplay
-  //   path: "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67a4d1c2bc2edae311b3c99f_be0111218b8d809cb2c82fdaaff50839_markless---schema.json",
-  // });
-
-  // ScrollTrigger.create({
-  //   trigger: $(".home-process_section"),
-  //   start: "10% 20%",
-  //   end: "bottom 80%",
-  //   onEnter: () => animProcess.play(),
-  //   // onLeaveBack: () => animProcess.stop(),
-  //   //toggleActions: "play none none reverse",
-  //   toggleActions: "play none none none",
-  // });
-
   LottieScrollTrigger({
     trigger: $(".home-process_section"),
     target: ".home-process_lottie",
-    path: "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67a4d1c2bc2edae311b3c99f_be0111218b8d809cb2c82fdaaff50839_markless---schema.json",
+    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835c1d2f28d793d372f7af6_markless---schema.json",
     speed: "medium",
     scrub: true,
     start: "top top",

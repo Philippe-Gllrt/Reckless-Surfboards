@@ -46,13 +46,33 @@ let typeSplit = new SplitType("[text-split]", {
 });
 
 const imagesLinks = [
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67b4d3d072a1e43212cef474_markless_sectionbpards-bg%20(1).jpg",
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67b4d3d0f40eea748da534f8_markless_sectionbpards-bg%20(2).jpg",
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67b4d3cf8a530e534116901b_markless_sectionbpards-bg%20(5).jpg",
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67b4d3d031a9034eed09dc62_markless_sectionbpards-bg%20(4).jpg",
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67b4d3cf2be65ff50c3d38a4_markless_sectionbpards-bg%20(3).jpg",
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67b248857fe81537890c3e6c_markless-illustration.jpg",
-  "https://cdn.prod.website-files.com/67939e9483ef1b9e88e964c0/67a4b6694ac72d93373f2a3a_surfer-blur-pict.jpg",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40b9c10f4d10a5da954_reckless_gallery-image%20(1).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40bdd66114623ff4232_reckless_gallery-image%20(2).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40ad646d4db9ffd163b_reckless_gallery-image%20(3).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40a9a2bf2d914e48d75_reckless_gallery-image%20(4).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40b793944ef845d4b25_reckless_gallery-image%20(5).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40adc87de1b0259c4a2_reckless_gallery-image%20(6).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40b7c5bb19f52b0bf13_reckless_gallery-image%20(7).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40bc14ffe346a208819_reckless_gallery-image%20(8).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40b3624bc24bef2b4d4_reckless_gallery-image%20(9).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40b9398019d554ca58e_reckless_gallery-image%20(10).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40cd798c9f2ff27a08f_reckless_gallery-image%20(11).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40de1c5b7202c6db1a1_reckless_gallery-image%20(12).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40db19ce5560ec7236d_reckless_gallery-image%20(13).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40de6f9def99c6a23de_reckless_gallery-image%20(14).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40dc20c9324b9ff69d7_reckless_gallery-image%20(15).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40dc9475b88f57fb9d2_reckless_gallery-image%20(16).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40d40492ba62677828c_reckless_gallery-image%20(17).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40dcf38540935bfd606_reckless_gallery-image%20(18).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40e9398019d554ca656_reckless_gallery-image%20(19).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40f245ab37b2c70ece4_reckless_gallery-image%20(20).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40ff017fbd6478e22df_reckless_gallery-image%20(21).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40f321c937a2830272d_reckless_gallery-image%20(22).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40f10b16c2d9f48f037_reckless_gallery-image%20(23).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40f23e4b461826a45a1_reckless_gallery-image%20(24).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d40ff54e5228dd9ddac1_reckless_gallery-image%20(25).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d411886682c193bac864_reckless_gallery-image%20(27).webp",
+  "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835d411eeb46f289697f546_reckless_gallery-image%20(28).webp"
 ];
 let imagesLinksReplicate = imagesLinks.slice();
 const formats = [
