@@ -67,7 +67,7 @@ const imagesLinks = [
   "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6836127520f983e11d475972_reckless_gallery-image%20(27).webp",
   "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/683612758a6542de5d20a484_reckless_gallery-image%20(28).webp",
 ];
-let imagesLinksReplicate = imagesLinks.slice();
+
 const formats = [
   "16/9",
   "4/3",
@@ -93,7 +93,7 @@ function preloadImages(links) {
       //Start the behavior once we have enought pictures ready
       if (!galleryStarted && imageLoadCount >= MIN_IMAGES_TO_START) {
         galleryStarted = true;
-        galleryBehavior();
+        setTimeout(galleryBehavior, 500);
         setGalleryClick();
       }
     };
@@ -145,7 +145,6 @@ function setGallery() {
       $div.append($image);
       wrapper.append($div);
       checkFormatArray();
-      // checkImagesArray();
     });
   }
 }
