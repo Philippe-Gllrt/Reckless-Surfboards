@@ -2,12 +2,6 @@ import {
   setNavBarMenu,
   sectBarCodeMovement,
   updateClock,
-  setFooterAppear,
-  scrollToTopInstant,
-  scrollToTop,
-  disableScroll,
-  enableScroll,
-  setParallax,
   setButtonHover,
   setPageTransition,
   setLenis,
@@ -32,13 +26,11 @@ window.addEventListener("load", () => {
     setButtonAppear();
   }
   setLenis();
+  preloadImages(imagesLinks);
   setInterval(updateClock, 1000);
   updateClock();
   setNavBarMenu();
-  setTimeout(() => {
-    galleryBehavior();
-    setGalleryClick();
-  }, 1500);
+  setGalleryClick();
 });
 
 const SplitType = window.SplitType;
@@ -82,11 +74,32 @@ const formats = [
   "3/2",
   "21/9",
   "2.39/1",
-  // "2/3",
-  // "1/1",
 ];
 let formatsReplicate = formats.slice();
 let isAnimating = false;
+const imageObjects = [];
+let imageLoadCount = 0;
+let galleryStarted = false;
+const MIN_IMAGES_TO_START = 20;
+
+//fullfill an array with img, to avoid reloading them at each itteration
+function preloadImages(links) {
+  links.forEach((src) => {
+    const img = new Image();
+    img.onload = () => {
+      imageObjects.push(img);
+      imageLoadCount++;
+
+      //Start the behavior once we have enought pictures ready
+      if (!galleryStarted && imageLoadCount >= MIN_IMAGES_TO_START) {
+        galleryStarted = true;
+        galleryBehavior();
+        setGalleryClick();
+      }
+    };
+    img.src = src;
+  });
+}
 
 function galleryBehavior() {
   $(".gallery-gallery_pictures-wrapper").empty();
@@ -98,26 +111,20 @@ function galleryBehavior() {
 
 function setGallery() {
   const wrappers = $(".gallery-gallery_pictures-wrapper");
-  let itemCount;
+  let itemCount = $(window).width() <= 991 ? 5 : 10;
+  let usedImages = imageObjects.slice(); // local copy of objects to be mapped
 
-  if ($(window).width() <= 991) {
-    itemCount = 6;
-  } else {
-    itemCount = 10;
-  }
+  formatsReplicate = formats.slice(); // refresh formats
 
-  //until the containers are full: create a div with format. Inject inmage with 120% of width. Inject div in container
   for (let i = 0; i < itemCount; i++) {
     wrappers.each(function () {
-      // const divHeight = Math.floor(Math.random() * (100 - 50 + 1)) + 50;
-      const randomFormatIndex = Math.floor(
-        Math.random() * formatsReplicate.length
-      );
-      const randomImageIndex = Math.floor(
-        Math.random() * imagesLinksReplicate.length
-      );
+      const wrapper = $(this);
+
+      // random selection
+      const randomFormatIndex = Math.floor(Math.random() * formatsReplicate.length);
+      const randomImageIndex = Math.floor(Math.random() * usedImages.length);
       const divFormat = formatsReplicate.splice(randomFormatIndex, 1)[0];
-      const imageLink = imagesLinksReplicate.splice(randomImageIndex, 1)[0];
+      const imgOriginal = usedImages.splice(randomImageIndex, 1)[0];
 
       let $div = $("<div></div>").css({
         height: "80%",
@@ -127,24 +134,20 @@ function setGallery() {
       });
 
       $div.attr("class", "gallery-gallery_item-wrapper");
-      $(this).append($div);
 
-      let $image = $("<img>");
-
-      $image.attr("src", imageLink);
-      $image.attr("class", "gallery-gallery_item");
-      $image.css({
+      const imgClone = imgOriginal.cloneNode(true);
+      const $image = $(imgClone).addClass("gallery-gallery_item").css({
         width: "120%",
         height: "100%",
         "object-fit": "cover",
       });
 
       $div.append($image);
+      wrapper.append($div);
       checkFormatArray();
-      checkImagesArray();
+      // checkImagesArray();
     });
-  } //end loop for
-  imagesLinksReplicate = imagesLinks.slice();
+  }
 }
 
 let waveTl = gsap.timeline();
@@ -274,12 +277,6 @@ function setImageHover() {
       }
     );
   });
-}
-
-function checkImagesArray() {
-  if (imagesLinksReplicate.length == 0) {
-    imagesLinksReplicate = imagesLinks.slice();
-  }
 }
 
 function checkFormatArray() {

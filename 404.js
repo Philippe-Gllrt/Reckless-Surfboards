@@ -6,12 +6,6 @@ import {
   setPageTransition,
   setLenis,
   setButtonHover,
-  setFooterAppear,
-  scrollToTopInstant,
-  scrollToTop,
-  disableScroll,
-  enableScroll,
-  setParallax,
   setLinkHover,
 } from "./utils.js";
 
