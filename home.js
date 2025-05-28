@@ -193,12 +193,13 @@ function EntranceAnimation() {
     "<"
   );
 
-  landingEntranceTl.from(
+  landingEntranceTl.to(
     $(".home-hero_backgroundimage"),
     {
-      duration: 1.4,
+      duration: 1.8,
       ease: "power1.out",
-      height: "100%"
+      scale: 1.15
+      // scale: 1.4
     },
     "<"
   );
