@@ -93,7 +93,7 @@ function preloadImages(links) {
       //Start the behavior once we have enought pictures ready
       if (!galleryStarted && imageLoadCount >= MIN_IMAGES_TO_START) {
         galleryStarted = true;
-        galleryBehavior;
+        setTimeout(galleryBehavior, 100);
         setGalleryClick();
       }
     };
