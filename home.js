@@ -312,7 +312,7 @@ function setIntroLottie() {
     renderer: "svg",
     loop: false, // or false if you don't want it to loop
     autoplay: false, // Disable autoplay
-    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835c1d2f28d793d372f7aff_d3a1c4cc934fdf31ed532238744c19e6_reckless-lottie-json.json",
+    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/684bfe88847130de4568ef95_lottie_logo_resized.json",
   });
 
   ScrollTrigger.create({
@@ -332,7 +332,7 @@ function setFooterLottie() {
     renderer: "svg",
     loop: false, // or false if you don't want it to loop
     autoplay: false, // Disable autoplay
-    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/6835c1d2f28d793d372f7aff_d3a1c4cc934fdf31ed532238744c19e6_reckless-lottie-json.json",
+    path: "https://cdn.prod.website-files.com/6835c1d2f28d793d372f7ab6/684bfe88847130de4568ef95_lottie_logo_resized.json",
   });
 
   ScrollTrigger.create({
