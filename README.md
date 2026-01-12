@@ -2,7 +2,7 @@
 
 Creative website developed for **MadeByReckless**, a custom surfboard shaper based in Vannes, France.
 
-👉 Live website: https://madebyreckless.webflow.io/
+👉 Live website: https://madebyreckless.com
 
 ---
 
